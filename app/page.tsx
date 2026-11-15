@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Bricolage_Grotesque } from 'next/font/google'
 import { Show, SignUpButton } from '@clerk/nextjs'
 
@@ -15,6 +16,7 @@ const works = [
     price: '$120',
     tall: true,
     bg: 'linear-gradient(160deg,#3b2bff,#ff6fb1 60%,#ffd1a1)',
+    image: '/artists/p1.jpeg',
   },
   {
     title: 'Static Garden',
@@ -22,6 +24,7 @@ const works = [
     price: '$80',
     tall: false,
     bg: 'linear-gradient(120deg,#0f2b46,#1fa38a 70%,#d8f36a)',
+    image: '/artists/p2.jpeg',
   },
   {
     title: 'Night Market 04',
@@ -29,6 +32,7 @@ const works = [
     price: '$150',
     tall: false,
     bg: 'linear-gradient(200deg,#14142b,#6a2cff 55%,#ff8a5b)',
+    image: '/artists/p3.jpeg',
   },
   {
     title: 'Paper Sun',
@@ -36,6 +40,7 @@ const works = [
     price: '$95',
     tall: true,
     bg: 'linear-gradient(180deg,#ffd1a1,#ff6f6f 50%,#7a1fa2)',
+    image: '/artists/p4.jpeg',
   },
   {
     title: 'Low Tide Signal',
@@ -43,6 +48,7 @@ const works = [
     price: '$110',
     tall: false,
     bg: 'linear-gradient(140deg,#cfe3ff,#6aa6ff 50%,#1b2a6b)',
+    image: '/artists/p7.jpeg',
   },
   {
     title: 'Soft Machine',
@@ -50,6 +56,7 @@ const works = [
     price: '$70',
     tall: false,
     bg: 'linear-gradient(130deg,#f4e1ff,#c08bff 50%,#3b2bff)',
+    image: '/artists/p10.jpeg',
   },
 ]
 
@@ -96,17 +103,44 @@ export default function Home() {
         {/* Overlapping artwork collage */}
         <div className="relative mx-auto h-105 w-full max-w-md md:h-130">
           <div
-            className="absolute top-6 left-0 h-64 w-48 -rotate-6 rounded-2xl shadow-xl md:h-80 md:w-60"
+            className="absolute top-6 left-0 h-64 w-48 -rotate-6 overflow-hidden rounded-2xl shadow-xl md:h-80 md:w-60"
             style={{ background: works[0].bg }}
-          />
+          >
+            {works[0].image && (
+              <Image
+                src={works[0].image}
+                alt={works[0].title}
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
           <div
-            className="absolute top-0 right-0 h-56 w-44 rotate-3 rounded-2xl shadow-xl md:h-72 md:w-56"
+            className="absolute top-0 right-0 h-56 w-44 rotate-3 overflow-hidden rounded-2xl shadow-xl md:h-72 md:w-56"
             style={{ background: works[2].bg }}
-          />
+          >
+            {works[2].image && (
+              <Image
+                src={works[2].image}
+                alt={works[2].title}
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
           <div
-            className="absolute bottom-0 left-1/4 h-52 w-52 rotate-1 rounded-2xl shadow-xl md:h-64 md:w-64"
+            className="absolute bottom-0 left-1/4 h-52 w-52 rotate-1 overflow-hidden rounded-2xl shadow-xl md:h-64 md:w-64"
             style={{ background: works[3].bg }}
-          />
+          >
+            {works[3].image && (
+              <Image
+                src={works[3].image}
+                alt={works[3].title}
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
         </div>
       </section>
 
@@ -134,9 +168,18 @@ export default function Home() {
               className="group mb-5 block break-inside-avoid"
             >
               <div
-                className={`w-full rounded-2xl ${w.tall ? 'h-96' : 'h-60'}`}
+                className={`relative w-full overflow-hidden rounded-2xl ${w.tall ? 'h-96' : 'h-60'}`}
                 style={{ background: w.bg }}
-              />
+              >
+                {w.image && (
+                  <Image
+                    src={w.image}
+                    alt={w.title}
+                    fill
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+                )}
+              </div>
               <div className="mt-3 flex items-baseline justify-between">
                 <div>
                   <p className="font-medium group-hover:underline">{w.title}</p>
