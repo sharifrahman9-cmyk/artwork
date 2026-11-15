@@ -3,59 +3,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Bricolage_Grotesque } from 'next/font/google'
-import { Show, SignUpButton } from '@clerk/nextjs'
+import Plan from '../components/plan'
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
   weight: ['600', '800'],
 })
-
-const plans = [
-  {
-    name: 'Starter',
-    blurb: 'For artists trying out the marketplace.',
-    monthly: 0,
-    yearly: 0,
-    fee: '15% sales fee',
-    features: [
-      'Up to 10 artworks',
-      'Standard storefront page',
-      'Email support',
-    ],
-    cta: 'Start for free',
-  },
-  {
-    name: 'Pro',
-    blurb: 'For artists selling regularly.',
-    monthly: 12,
-    yearly: 9,
-    fee: '8% sales fee',
-    features: [
-      'Unlimited artworks',
-      'Custom storefront URL',
-      'Commission requests',
-      'Sales analytics',
-      'Priority support',
-    ],
-    cta: 'Go Pro',
-    featured: true,
-  },
-  {
-    name: 'Studio',
-    blurb: 'For teams and collectives.',
-    monthly: 39,
-    yearly: 32,
-    fee: '4% sales fee',
-    features: [
-      'Everything in Pro',
-      'Up to 5 team members',
-      'Bulk upload',
-      'Licensing tools',
-      'Dedicated account manager',
-    ],
-    cta: 'Start a studio',
-  },
-]
 
 const faqs = [
   {
@@ -122,84 +75,41 @@ export default function PricingPage() {
         </div>
 
         {/* Plans */}
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {plans.map((p) => (
-            <div
-              key={p.name}
-              className={`flex flex-col rounded-2xl p-8 ${
-                p.featured
-                  ? 'bg-[#3b2bff] text-white shadow-xl md:-translate-y-3'
-                  : 'bg-white shadow-sm'
-              }`}
-            >
-              <h2 className={`${display.className} text-2xl font-semibold`}>
-                {p.name}
-              </h2>
-              <p
-                className={`mt-1 text-sm ${p.featured ? 'text-white/80' : 'text-[#14142b]/60'}`}
-              >
-                {p.blurb}
-              </p>
-
-              <p className="mt-6 flex items-baseline gap-1">
-                <span
-                  className={`${display.className} text-5xl font-extrabold`}
-                >
-                  ${yearly ? p.yearly : p.monthly}
-                </span>
-                <span
-                  className={p.featured ? 'text-white/80' : 'text-[#14142b]/60'}
-                >
-                  /month
-                </span>
-              </p>
-              <p
-                className={`mt-1 text-sm ${p.featured ? 'text-white/80' : 'text-[#14142b]/60'}`}
-              >
-                {p.fee}
-                {yearly && p.yearly > 0 ? ', billed yearly' : ''}
-              </p>
-
-              <ul className="mt-6 flex-1 space-y-3 text-sm">
-                {p.features.map((f) => (
-                  <li key={f} className="flex gap-2">
-                    <span aria-hidden="true">✓</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8">
-                <Show when="signed-out">
-                  <SignUpButton mode="modal">
-                    <button
-                      className={`w-full rounded-full px-6 py-3 font-medium transition ${
-                        p.featured
-                          ? 'bg-white text-[#3b2bff] hover:bg-[#eef0f7]'
-                          : 'bg-[#14142b] text-white hover:bg-[#2a2a4a]'
-                      }`}
-                    >
-                      {p.cta}
-                    </button>
-                  </SignUpButton>
-                </Show>
-                <Show when="signed-in">
-                  <Link
-                    href="/upload"
-                    className={`block w-full rounded-full px-6 py-3 text-center font-medium transition ${
-                      p.featured
-                        ? 'bg-white text-[#3b2bff] hover:bg-[#eef0f7]'
-                        : 'bg-[#14142b] text-white hover:bg-[#2a2a4a]'
-                    }`}
-                  >
-                    {p.cta}
-                  </Link>
-                </Show>
-              </div>
-            </div>
-          ))}
-        </div>
-
+        <Plan
+          plans={[
+            {
+              name: 'Starter',
+              blurb: 'For new artists',
+              monthly: 0,
+              yearly: 0,
+              fee: '5% sales fee',
+              features: ['List up to 10 artworks', 'Basic analytics'],
+              cta: 'Get started',
+              featured: false,
+            },
+            {
+              name: 'Mid-tier',
+              blurb: 'For premimum artists',
+              monthly: 10,
+              yearly: 120,
+              fee: '5% sales fee',
+              features: ['List up to 10 artworks', 'Basic analytics'],
+              cta: 'Get started',
+              featured: true,
+            },
+            {
+              name: 'Pro',
+              blurb: 'For established artists',
+              monthly: 25,
+              yearly: 240,
+              fee: '5% sales fee',
+              features: ['List up to 10 artworks', 'Advanced analytics'],
+              cta: 'Get started',
+              featured: false,
+            },
+          ]}
+          yearly={yearly}
+        />
         {/* FAQ */}
         <section className="mx-auto mt-24 max-w-3xl">
           <h2
