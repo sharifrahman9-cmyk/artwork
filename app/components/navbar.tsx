@@ -46,6 +46,7 @@ export default function Navbar() {
         </ul>
 
         {/* Auth */}
+
         <div className="flex items-center gap-3">
           <Show when="signed-out">
             <SignInButton mode="modal">
@@ -53,6 +54,9 @@ export default function Navbar() {
                 Sign in
               </button>
             </SignInButton>
+          </Show>
+
+          <Show when="signed-out">
             <SignUpButton mode="modal">
               <button className="rounded-md bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-700">
                 Sign up

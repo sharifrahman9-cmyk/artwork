@@ -4,7 +4,7 @@ import { Show, SignUpButton } from '@clerk/nextjs'
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['600', '800'],
+  weight: ['400', '600'],
 })
 
 // ছবি যোগ করতে gradient এর বদলে image: "/art/your-file.jpg" ব্যবহার করুন
@@ -60,7 +60,7 @@ export default function Home() {
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
         <div>
           <h1
-            className={`${display.className} text-5xl leading-[1.05] font-extrabold tracking-tight md:text-7xl`}
+            className={`${display.className} lg:*text-6xl text-2xl leading-[1.05] font-extrabold tracking-tight md:text-5xl`}
           >
             Art that was never printed, only painted in HandMade Water Colors.
           </h1>
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/gallery"
-              className="rounded-full bg-[#3b2bff] px-6 py-3 font-medium text-white transition hover:bg-[#2a1de0] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#3b2bff]"
+              className="rounded-full bg-[#6456ff] px-6 py-3 font-medium text-white transition hover:bg-[#2a1de0] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#3b2bff]"
             >
               Browse the gallery
             </Link>
@@ -114,7 +114,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="mb-8 flex items-end justify-between">
           <h2
-            className={`${display.className} text-3xl font-semibold md:text-4xl`}
+            className={`${display.className} text-2xl font-semibold md:text-4xl`}
           >
             New this week
           </h2>
