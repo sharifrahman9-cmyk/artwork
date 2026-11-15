@@ -17,7 +17,7 @@ export default function Navbar() {
             priority
           />
           <span className="text-lg font-semibold text-slate-900">
-            Sundarbans
+            Sundarban
           </span>
         </Link>
 
