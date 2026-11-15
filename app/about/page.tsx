@@ -23,7 +23,7 @@ const artists: Artist[] = [
     location: 'Dhaka',
     bio: 'Paints dreamy, colour-soaked scenes inspired by monsoon skies.',
     bg: 'linear-gradient(160deg,#3b2bff,#ff6fb1 60%,#ffd1a1)',
-    // image: "/artists/nila.jpg",
+    image: '/artists/p1.jpeg',
   },
   {
     name: 'Arif Hossain',
@@ -31,6 +31,7 @@ const artists: Artist[] = [
     location: 'Chattogram',
     bio: 'Builds quiet, glitchy digital gardens out of light and geometry.',
     bg: 'linear-gradient(120deg,#0f2b46,#1fa38a 70%,#d8f36a)',
+    image: '/artists/p3.jpeg',
   },
   {
     name: 'Sadia Islam',
@@ -38,6 +39,7 @@ const artists: Artist[] = [
     location: 'Sylhet',
     bio: 'Designs night markets and cities that only exist after dark.',
     bg: 'linear-gradient(200deg,#14142b,#6a2cff 55%,#ff8a5b)',
+    image: '/artists/p6.jpeg',
   },
   {
     name: 'Tanvir Ahmed',
@@ -45,6 +47,7 @@ const artists: Artist[] = [
     location: 'Mymensingh',
     bio: 'Turns everyday village scenes into tiny, detailed pixel worlds.',
     bg: 'linear-gradient(180deg,#ffd1a1,#ff6f6f 50%,#7a1fa2)',
+    image: '/artists/p4.jpeg',
   },
 ]
 
