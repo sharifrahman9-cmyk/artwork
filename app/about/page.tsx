@@ -89,7 +89,7 @@ export default function AboutPage() {
       {/* Intro */}
       <section className="mx-auto max-w-4xl px-4 py-16 md:py-24">
         <h1
-          className={`${display.className} text-5xl leading-[1.05] font-extrabold tracking-tight md:text-7xl`}
+          className={`${display.className} leading-[1.05] font-extrabold tracking-tight md:text-7xl`}
         >
           A home for artists who work in pixels.
         </h1>

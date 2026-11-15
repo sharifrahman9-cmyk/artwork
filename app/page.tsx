@@ -153,11 +153,12 @@ export default function Home() {
       <section className="bg-[#14142b] text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 py-14 md:flex-row md:items-center">
           <div>
-            <h2
-              className={`${display.className} text-3xl font-semibold md:text-4xl`}
-            >
+            <h2 className={`${display.className} font-semibold text-gray-600`}>
               Need something made just for you?
             </h2>
+            <p className="mt-2 max-w-lg text-white/70">
+              Commission an artist to create a custom piece of artwork for you.
+            </p>
             <p className="mt-2 max-w-lg text-white/70">
               Send a brief to an artist in the gallery and agree on a price
               before work begins.
